@@ -1,0 +1,62 @@
+==========================================
+==============  sex =================
+==========================================
+The AUC are [0.90538132]
+The mean for 1 runs = 0.9054 and the std = 0.0000
+The accuracy are [0.83166515]
+The mean for 1 runs = 0.8317 and the std = 0.0000
+The f1_score are [0.82694107]
+The mean for 1 runs = 0.8269 and the std = 0.0000
+The training time = 0.1924/epoch and the inference time = 0.0000/ecg
+==========================================
+========  Training Configuration =========
+==========================================
+cactivation: sigmoid  
+class_names: {'age': [0, 1], 'sex': [0, 1], 'super_classes': [0, 1], 'sub_classes': [0, 1]}  
+closs: binary_crossentropy  
+cmetrics: ['AUC', 'accuracy', 'f1_score']  
+cmonitor: val_auc  
+data_info: {'path': {'code': 'code_braveheart_rhythm_8l_400_bf_nf', 'bidmc': 'bidmc_8l_400_bf_nf', 'shanghai': 'shanghai_8l_400_bf_nf', 'ukb': 'ukb_braveheart_rhythm_8l_400_bf_nf', 'ptb': 'ptb', 'vanderbilt': 'vanderbilt_braveheart_rhythm_8l_400_bf_nf', 'mimic': 'mimic_braveheart_rhythm_8l_400_bf'}, 'id': {'code': 'id_patient', 'bidmc': 'id', 'shanghai': 'ID', 'ukb': 'id', 'ptb': 'patient_id', 'vanderbilt': 'id', 'mimic': 'subject_id'}, 'pad': {'code': 600, 'bidmc': 100, 'shanghai': 100, 'ukb': 10, 'ptb': 10, 'vanderbilt': 100, 'mimic': 100}, 'sampling': {'code': 400, 'bidmc': 400, 'shanghai': 400, 'ukb': 400, 'ptb': 500, 'vanderbilt': 400, 'mimic': 400}, 'date': {'code': 'date_exam', 'bidmc': 'ecg_date', 'shanghai': 'ECGCheckTime', 'ukb': 'ecg_date', 'ptb': 'recording_date', 'vanderbilt': '', 'mimic': 'ecg_time'}, 'filename': {'code': 'id_exam', 'bidmc': 'filename', 'shanghai': 'filename', 'ukb': 'filename', 'ptb': 'filename_hr', 'vanderbilt': 'filename', 'mimic': 'filename'}, 'age': {'code': 'age', 'bidmc': 'age_ecg', 'shanghai': 'age', 'ukb': 'age_ecg', 'ptb': 'age'}, 'sex': {'code': 'sex', 'bidmc': 'female', 'shanghai': 'sex', 'ukb': 'gender', 'ptb': 'sex'}, 'split': {'code': {'train': 'code_rhythm_train_ids.csv', 'val': 'code_rhythm_val_ids.csv', 'test': 'code_rhythm_test_ids.csv'}, 'bidmc': {'train': 'arun_bidmc_rhythm_train_ids.csv', 'val': 'arun_bidmc_rhythm_val_ids.csv', 'test': 'arun_bidmc_rhythm_test_ids.csv'}, 'shanghai': {'train': 'shanghai_rhythm_train_ids.csv', 'val': 'shanghai_rhythm_val_ids.csv', 'test': 'shanghai_rhythm_test_ids.csv'}, 'ukb': {'train': 'ukb_rhythm_train_ids.csv', 'val': 'ukb_rhythm_val_ids.csv', 'test': 'ukb_rhythm_test_ids.csv'}, 'ptb': {'train': 'ptb_train_split.csv', 'val': 'ptb_val_split.csv', 'test': 'ptb_test_split.csv'}}}  
+datadir: data/ECGdata/ptb  
+datapath: data/ECGdata/  
+dataset: ptb  
+datatype: rhythm  
+featname: CAPE_feats_ptb_CAPE_mimic_2.h5  
+featpath: feats/ptb/CAPE_feats_ptb_CAPE_mimic_2.h5  
+labels_filename: ecg_labels.csv  
+ntest: 2198  
+ntrain: 17418  
+nval: 2183  
+outdir: results  
+ractivation: sigmoid  
+res_name: MLP_ptb_mimic_btcsv  
+result_dir: results/MLP_ptb_mimic_btcsv  
+rloss: mse  
+rmetrics: ['mae', 'mape', 'r2_score']  
+rmonitor: val_mae  
+runs: 1  
+split_path: data/DataSplits  
+target_labels: ['age', 'sex', 'super_classes', 'sub_classes']  
+targets: ['age', 'sex', 'super_classes', 'sub_classes']  
+task: {'classification': {'metrics': ['AUC', 'accuracy', 'f1_score'], 'loss': 'binary_crossentropy', 'activation': 'sigmoid', 'monitor': 'val_auc'}, 'regression': {'metrics': ['mae', 'mape', 'r2_score'], 'loss': 'mse', 'activation': 'sigmoid', 'monitor': 'val_mae'}}  
+test_split: ptb_test_split.csv  
+tparams: {'age': {'lr': 0.005, 'epochs': 100, 'hidden': [], 'use_weights': 0, 'class_weights': 0, 'opt_decay': 0.1, 'opt_epochs': 10}, 'sex': {'lr': 0.005, 'epochs': 100, 'hidden': [], 'use_weights': 1, 'class_weights': 0, 'opt_decay': 0.1, 'opt_epochs': 10}, 'sub_classes': {'lr': 0.0001, 'epochs': 300, 'hidden': [], 'use_weights': 0, 'class_weights': 0, 'opt_decay': 0.5, 'opt_epochs': 5}, 'super_classes': {'lr': 0.0001, 'epochs': 300, 'hidden': [], 'use_weights': 0, 'class_weights': 0, 'opt_decay': 0.5, 'opt_epochs': 5}}  
+train_split: ptb_train_split.csv  
+training_type: {'age': 'regression', 'sex': 'classification', 'super_classes': 'classification', 'sub_classes': 'classification'}  
+val_split: ptb_val_split.csv  
+
+
+Architecture Summary 
+Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_1 (Dense)             (None, 1)                 257       
+                                                                 
+=================================================================
+Total params: 257
+Trainable params: 257
+Non-trainable params: 0
+_________________________________________________________________
+
+Training params: {'lr': 0.005, 'epochs': 100, 'hidden': [], 'use_weights': 1, 'class_weights': 0, 'opt_decay': 0.1, 'opt_epochs': 10}
